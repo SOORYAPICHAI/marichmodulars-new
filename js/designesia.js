@@ -654,10 +654,13 @@ jQuery(document).ready(function () {
          });
 
     jQuery("#logo-carousel").owlCarousel({
-        items: 6,
-        loop:true,
-		dots: false,
-        autoPlay: true
+            items:5,
+            autoplay:true,
+            autoplayTimeout:4000,
+            animateOut: 'fadeOut',
+            animateIn: 'fadeIn',
+            loop:true,
+            dots:false,
     });
 
     jQuery("#contact-carousel").owlCarousel({

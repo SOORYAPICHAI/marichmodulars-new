@@ -45,6 +45,29 @@
     <!-- revolution slider -->
     <link rel="stylesheet" href="rs-plugin/css/settings.css" type="text/css">
     <link rel="stylesheet" href="css/rev-settings.css" type="text/css">
+    <style>
+        .list-group-item {
+            background-color: black;
+            color: white;
+            border-bottom: 1px solid #fab702;
+        }
+
+        .list-group-item:hover {
+            background-color: black;
+            color: #fab702;
+        }
+
+        .list-group-item:focus {
+            background-color: black;
+            color: #fab702;
+            font-weight: bold;
+        }
+
+        /* .list-group-item:active{
+            background-color: #fab702;
+    color:white;
+        } */
+    </style>
 </head>
 
 <body class="page-projects">
@@ -93,7 +116,7 @@
                         <!-- mainmenu begin -->
                         <nav>
                             <ul id="mainmenu">
-                                
+
                             </ul>
                         </nav>
 
@@ -111,11 +134,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1>Conference Chairs</h1>
+                        <h1>Search</h1>
                         <ul class="crumb">
                             <li><a href="index.html">Home</a></li>
                             <li class="sep">/</li>
-                            <li>Conference Chairs</li>
+                            <li>Search</li>
                         </ul>
                     </div>
                 </div>
@@ -126,21 +149,42 @@
         <!-- content begin -->
         <div id="content" class="no-top no-bottom">
             <!-- section begin -->
-            <section id="section-portfolio" class="no-top no-bottom" aria-label="section-portfolio">
-                <div class="container">
+            <!-- content begin -->
+            <div id="content" class="no-top no-bottom">
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="offset-md-3 col-md-6">
+                                <h3>Search</h3>
+                                <form name="contactForm" id='contact_form' method="post" action='javascript:void(0)'>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id='name_error' class='error'>Please enter your name.</div>
+                                            <div>
+                                                <input type='text' name='name' id='searchinput' class="form-control"
+                                                    placeholder="Type here..." autocomplete="off" autofocus
+                                                    oninput="fetchSearchResults()" onfocus="fetchSearchResults()">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="list-group" id="search-results">
+                                                <div style="max-height: 100px;overflow-y: auto;">
+                                                    No Results..
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
 
-                    <div class="spacer-single"></div>
-
-
-
-                    <div id="gallery" class="row grid_gallery gallery de-gallery wow fadeInUp" data-wow-delay=".3s">
-
-                     
+                            </div>
+                        </div>
                     </div>
+                </section>
 
-                </div>
+            </div>
 
-            </section>
             <!-- section close -->
 
 
@@ -251,59 +295,86 @@
     <script src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
     <script src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 
-     <!-- MENUS JSON -->
-     <script src="menu.js"></script>
 
-     <!-- MENUS APPENDED HERE... -->
-     <script>
-         // imported a script file 
-         // named as menu.js
-         let menusList = mainmenu
- 
-         menusList.map(val => {
-             return (
- 
- 
-                 $("#mainmenu").append(`<li>
+    <!-- MENUS JSON -->
+    <script src="menu.js"></script>
+
+    <!-- MENUS APPENDED HERE... -->
+    <script>
+        // imported a script file 
+        // named as menu.js
+        let menusList = mainmenu
+
+        menusList.map(val => {
+            return (
+
+
+                $("#mainmenu").append(`<li>
                          <a href=${val.url}>${val.label === "Search" ? `<i class="fa" style="font-size:18px">&#xf002;</i>` : val.label}<span></span></a>
                   ${submenus[val.label] ?
-                         '<ul>' +
-                         submenus[val.label].map(submenus => {
-                             return (
-                                 '<li>' + 
-                                 '<a href=' + submenus.url + '>' + submenus.label + '</a>' +
-                                 `${productsSubMenu[submenus.label] ?
-                                     '<ul>' +
-                                     productsSubMenu[submenus.label].map(products => {
-                                         return (
-                                             '<li>' +
-                                             '<a href=' + products.url + '>' + products.label + '</a>' +
-                                             '</li>' 
-                                         )
-                                     }).join('') +
- 
- 
-                                     '</ul>'
-                                     : '<div></div>'}` +
-                                 '</li>'
-                             )
-                         }).join('') +
- 
- 
-                         '</ul>'
-                         : '<div></div>'} 
+                        '<ul>' +
+                        submenus[val.label].map(submenus => {
+                            return (
+                                '<li>' +
+                                '<a href=' + submenus.url + '>' + submenus.label + '</a>' +
+                                `${productsSubMenu[submenus.label] ?
+                                    '<ul>' +
+                                    productsSubMenu[submenus.label].map(products => {
+                                        return (
+                                            '<li>' +
+                                            '<a href=' + products.url + '>' + products.label + '</a>' +
+                                            '</li>'
+                                        )
+                                    }).join('') +
+
+
+                                    '</ul>'
+                                    : '<div></div>'}` +
+                                '</li>'
+                            )
+                        }).join('') +
+
+
+                        '</ul>'
+                        : '<div></div>'} 
                          </li>`)
- 
-             )
-         })
- 
-     </script>
 
-<!--  DATA FOR THIS PAGE  -->
-<script src="data/seating-systems.js"></script>
-<script src="layout/withoutfilters.js"></script>
+            )
+        })
 
-<script>mainSection(conference_chairs())</script>
+    </script>
+
+    <script>
+        const fetchSearchResults = () => {
+
+            let allsearchmenues = allSearchMenus
+            document.getElementById('search-results').style.display = 'block'
+            let inputSearch = document.getElementById('searchinput').value
+            let searchResults = allsearchmenues.filter(val => ((val.label).toLowerCase()).indexOf((inputSearch).toLowerCase()) > -1).map(val => {
+                return (
+
+                    '<a href=' + val.url + ' class="list-group-item list-group-item-action">' + val.label + '</a>'
+
+
+                )
+            })
+            if(searchResults.length > 0){
+                $("#search-results").html("");
+            $("#search-results").append(
+                '<div style="height:300px;overflow-y:auto">' +
+                searchResults.join('') +
+                '</div>'
+            )
+            }
+            else{
+                $("#search-results").html("");
+            $("#search-results").append(
+                '<div style="height:300px;overflow-y:auto;textAlign:center"> No search results found... </div>'
+            )
+            }
+            
+        }
+    </script>
 </body>
 
 </html>

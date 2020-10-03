@@ -93,73 +93,7 @@
                         <!-- mainmenu begin -->
                         <nav>
                             <ul id="mainmenu">
-                                <li><a href="index.html">Home<span></span></a>
-
-                                </li>
-                                <li>
-                                    <a href="#">Products</a>
-                                    <ul>
-                                        <li><a href="modular-workstation.html">Modular workstation</a>
-                                            <ul>
-                                                <li><a href="cluster-workstation.html">Cluster Workstation</a></li>
-                                                <li><a href="linear-workstation.html">Linear Workstation</a></li>
-
-                                            </ul>
-                                        </li>
-                                        <li><a href="seating-systems.html">Seating Systems</a>
-                                            <ul>
-                                                <li><a href="executive-chairs.html">Executive Chairs</a></li>
-                                                <li><a href="workstation-chairs.html">Workstation Chairs</a></li>
-                                                <li><a href="visitor-chairs.html">Visitor Chairs</a></li>
-                                                <li><a href="conference-chairs.html">Conference Chairs</a></li>
-                                                <li><a href="trainee-chairs.html">Trainee Chairs</a></li>
-                                                <li><a href="auditorium-chairs.html">Auditorium Chairs</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="tables.html">Tables</a>
-                                            <ul>
-                                                <li><a href="office-tables.html">Office Tables</a></li>
-                                                <li><a href="computer-tables.html">Computer Tables</a></li>
-                                                <li><a href="conference-tables.html">Conference Tables</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="reception-desk.html">Reception Desk</a>
-
-                                        </li>
-                                        <li><a href="visitor-lounge.html">Visitor Lounge</a>
-
-                                        </li>
-                                        <li><a href="storage-units.html">Office Storage & Lockers</a>
-                                            <ul>
-                                                <li><a href="steel-storage.html">Steel Storage & Lockers</a></li>
-                                                <li><a href="wooden-storage.html">Wooden Storage</a></li>
-                                            </ul>
-                                        </li>
-
-                                        <li><a href="wardrobe.html">Wardrobe</a>
-
-                                        </li>
-                                        <li><a href="interior.html">Interior Design</a>
-                                            <ul>
-                                                <li><a href="wooden-cabins.html">Wooden Cabins</a></li>
-                                                <li><a href="gypsum-partition.html">Gypsum Partition</a></li>
-                                                <li><a href="false-ceiling.html">False Ceiling</a></li>
-                                                <!-- <li><a href="corporate-interiors.html">Corporate Interiors</a></li> -->
-                                                <li><a href="aluminium-partition.html">Aluminium Partition</a></li>
-                                                <li><a href="grid-false-ceiling.html">Grid False Ceiling</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-
-                                </li>
-
-                                <li><a href="services-style-2.html">Services</a>
-
-                                </li>
-                                <li>
-                                    <a href="about.html">About</a>
-
-                                <li><a href="contact.html">Contact</a></li>
+                         
                             </ul>
                         </nav>
 
@@ -456,6 +390,54 @@
     <!-- SLIDER REVOLUTION SCRIPTS  -->
     <script src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
     <script src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+     <!-- MENUS JSON -->
+     <script src="menu.js"></script>
+
+     <!-- MENUS APPENDED HERE... -->
+     <script>
+         // imported a script file 
+         // named as menu.js
+         let menusList = mainmenu
+ 
+         menusList.map(val => {
+             return (
+ 
+ 
+                 $("#mainmenu").append(`<li>
+                         <a href=${val.url}>${val.label === "Search" ? `<i class="fa" style="font-size:18px">&#xf002;</i>` : val.label}<span></span></a>
+                  ${submenus[val.label] ?
+                         '<ul>' +
+                         submenus[val.label].map(submenus => {
+                             return (
+                                 '<li>' + 
+                                 '<a href=' + submenus.url + '>' + submenus.label + '</a>' +
+                                 `${productsSubMenu[submenus.label] ?
+                                     '<ul>' +
+                                     productsSubMenu[submenus.label].map(products => {
+                                         return (
+                                             '<li>' +
+                                             '<a href=' + products.url + '>' + products.label + '</a>' +
+                                             '</li>' 
+                                         )
+                                     }).join('') +
+ 
+ 
+                                     '</ul>'
+                                     : '<div></div>'}` +
+                                 '</li>'
+                             )
+                         }).join('') +
+ 
+ 
+                         '</ul>'
+                         : '<div></div>'} 
+                         </li>`)
+ 
+             )
+         })
+ 
+     </script>
 
 </body>
 
