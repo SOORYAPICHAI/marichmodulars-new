@@ -1,7 +1,9 @@
 <html>
-  <head></head>
-  <body>
-    <!--
+
+<head></head>
+
+<body>
+  <!--
     BEFORE RUNNING:
     ---------------
     1. If not already done, enable the Google Sheets API
@@ -12,29 +14,29 @@
     3. For additional information on authentication, see
        https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
     -->
-    <script>
+  <script>
 
-// {
-//   "spreadsheetId": "1Heizfa4V7P7ardVQJMPJi-y7tg8xQdv_XLIdZePwiFA",
-//   "tableRange": "Sheet1!A1:B6",
-//   "updates": {
-//     "spreadsheetId": "1Heizfa4V7P7ardVQJMPJi-y7tg8xQdv_XLIdZePwiFA",
-//     "updatedRange": "Sheet1!A7:B7",
-//     "updatedRows": 1,
-//     "updatedColumns": 2,
-//     "updatedCells": 2,
-//     "updatedData": {
-//       "range": "Sheet1!A7:B7",
-//       "majorDimension": "ROWS",
-//       "values": [
-//         [
-//           "2",
-//           "5"
-//         ]
-//       ]
-//     }
-//   }
-// }
+    // {
+    //   "spreadsheetId": "1Heizfa4V7P7ardVQJMPJi-y7tg8xQdv_XLIdZePwiFA",
+    //   "tableRange": "Sheet1!A1:B6",
+    //   "updates": {
+    //     "spreadsheetId": "1Heizfa4V7P7ardVQJMPJi-y7tg8xQdv_XLIdZePwiFA",
+    //     "updatedRange": "Sheet1!A7:B7",
+    //     "updatedRows": 1,
+    //     "updatedColumns": 2,
+    //     "updatedCells": 2,
+    //     "updatedData": {
+    //       "range": "Sheet1!A7:B7",
+    //       "majorDimension": "ROWS",
+    //       "values": [
+    //         [
+    //           "2",
+    //           "5"
+    //         ]
+    //       ]
+    //     }
+    //   }
+    // }
     function makeApiCall() {
       var params = {
         // The ID of the spreadsheet to update.
@@ -42,7 +44,7 @@
 
         // The A1 notation of the values to update.
         range: 'A1:B2',  // TODO: Update placeholder value.
-
+        insertDataOption:"INSERT_ROWS",
         // How the input data should be interpreted.
         valueInputOption: 'RAW',  // TODO: Update placeholder value.
       };
@@ -51,18 +53,18 @@
         // TODO: Add desired properties to the request body. All existing properties
         // will be replaced.
         "values": [
-        [
-          "22",
-          "55"
+          [
+            "22",
+            "55"
+          ]
         ]
-      ]
       };
 
       var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
-      request.then(function(response) {
+      request.then(function (response) {
         // TODO: Change code below to process the `response` object:
         console.log(response.result);
-      }, function(reason) {
+      }, function (reason) {
         console.error('error: ' + reason.result.error.message);
       });
     }
@@ -70,8 +72,8 @@
     function initClient() {
       // var API_KEY = '';  // TODO: Update placeholder with desired API key.
 
-            // Client ID and API key from the Developer Console
-            var CLIENT_ID = '556294428289-eemughbrku6efg9kb5uqid1lppbmiqsj.apps.googleusercontent.com';
+      // Client ID and API key from the Developer Console
+      var CLIENT_ID = '556294428289-eemughbrku6efg9kb5uqid1lppbmiqsj.apps.googleusercontent.com';
       var API_KEY = 'AIzaSyCnVsapcNj5kslvFYG1zRkDR9aJMhNxCcM';
 
       // TODO: Authorize using one of the following scopes:
@@ -85,7 +87,7 @@
         'clientId': CLIENT_ID,
         'scope': SCOPE,
         'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
-      }).then(function() {
+      }).then(function () {
         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
         updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       });
@@ -108,12 +110,12 @@
     function handleSignOutClick(event) {
       gapi.auth2.getAuthInstance().signOut();
     }
+  </script>
+  <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
-    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
-  </body>
+  <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+  <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+</body>
+
 </html>
