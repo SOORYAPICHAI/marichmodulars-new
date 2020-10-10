@@ -13,21 +13,49 @@
        https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
     -->
     <script>
+
+{
+  "spreadsheetId": "1Heizfa4V7P7ardVQJMPJi-y7tg8xQdv_XLIdZePwiFA",
+  "tableRange": "Sheet1!A1:B6",
+  "updates": {
+    "spreadsheetId": "1Heizfa4V7P7ardVQJMPJi-y7tg8xQdv_XLIdZePwiFA",
+    "updatedRange": "Sheet1!A7:B7",
+    "updatedRows": 1,
+    "updatedColumns": 2,
+    "updatedCells": 2,
+    "updatedData": {
+      "range": "Sheet1!A7:B7",
+      "majorDimension": "ROWS",
+      "values": [
+        [
+          "2",
+          "5"
+        ]
+      ]
+    }
+  }
+}
     function makeApiCall() {
       var params = {
         // The ID of the spreadsheet to update.
-        spreadsheetId: 'my-spreadsheet-id',  // TODO: Update placeholder value.
+        spreadsheetId: '1Heizfa4V7P7ardVQJMPJi-y7tg8xQdv_XLIdZePwiFA',  // TODO: Update placeholder value.
 
         // The A1 notation of the values to update.
-        range: 'my-range',  // TODO: Update placeholder value.
+        range: 'A1:B2',  // TODO: Update placeholder value.
 
         // How the input data should be interpreted.
-        valueInputOption: '',  // TODO: Update placeholder value.
+        valueInputOption: 'RAW',  // TODO: Update placeholder value.
       };
 
       var valueRangeBody = {
         // TODO: Add desired properties to the request body. All existing properties
         // will be replaced.
+        "values": [
+        [
+          "2",
+          "5"
+        ]
+      ]
       };
 
       var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
