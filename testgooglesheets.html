@@ -15,6 +15,19 @@
        https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
     -->
   <script>
+    var today_date = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    var today_time = new Date()
+    var hours = today_time.getHours();
+    var minutes = today_time.getMinutes();
+    var seconds = today_time.getSeconds();
+
+    today_time = hours + ' : ' + minutes + ' : ' + seconds
+    today_date = mm + '/' + dd + '/' + yyyy;
+
     function makeApiCall() {
       var params = {
         // The ID of the spreadsheet to update.
@@ -22,7 +35,7 @@
 
         // The A1 notation of a range to search for a logical table of data.
         // Values will be appended after the last row of the table.
-        range: 'D7:G7',  // TODO: Update placeholder value.
+        range: 'A6:F6',  // TODO: Update placeholder value.
 
         // How the input data should be interpreted.
         valueInputOption: 'RAW',  // TODO: Update placeholder value.
@@ -39,8 +52,8 @@
             9092893151,
             "CLIENT@GMAIL.COM",
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-            new Date().getTime(),
-            new Date().getDate()
+            today_date,
+            today_time
           ]
         ]
       };
