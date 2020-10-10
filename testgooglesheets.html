@@ -1,7 +1,9 @@
 <html>
-  <head></head>
-  <body>
-    <!--
+
+<head></head>
+
+<body>
+  <!--
     BEFORE RUNNING:
     ---------------
     1. If not already done, enable the Google Sheets API
@@ -12,7 +14,7 @@
     3. For additional information on authentication, see
        https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
     -->
-    <script>
+  <script>
     function makeApiCall() {
       var params = {
         // The ID of the spreadsheet to update.
@@ -20,7 +22,7 @@
 
         // The A1 notation of a range to search for a logical table of data.
         // Values will be appended after the last row of the table.
-        range: 'A1:B2',  // TODO: Update placeholder value.
+        range: 'D4:G4',  // TODO: Update placeholder value.
 
         // How the input data should be interpreted.
         valueInputOption: 'RAW',  // TODO: Update placeholder value.
@@ -32,24 +34,26 @@
       var valueRangeBody = {
         // TODO: Add desired properties to the request body.
         "values": [
-    [
-      22,
-      555
-    ]
-  ]
+          [
+            "CLIENT",
+            9092893151,
+            "CLIENT@GMAIL.COM",
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+          ]
+        ]
       };
 
       var request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody);
-      request.then(function(response) {
+      request.then(function (response) {
         // TODO: Change code below to process the `response` object:
         console.log(response.result);
-      }, function(reason) {
+      }, function (reason) {
         console.error('error: ' + reason.result.error.message);
       });
     }
 
     function initClient() {
-        var CLIENT_ID = '556294428289-eemughbrku6efg9kb5uqid1lppbmiqsj.apps.googleusercontent.com';
+      var CLIENT_ID = '556294428289-eemughbrku6efg9kb5uqid1lppbmiqsj.apps.googleusercontent.com';
       var API_KEY = 'AIzaSyCnVsapcNj5kslvFYG1zRkDR9aJMhNxCcM';
 
       // TODO: Authorize using one of the following scopes:
@@ -63,7 +67,7 @@
         'clientId': CLIENT_ID,
         'scope': SCOPE,
         'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
-      }).then(function() {
+      }).then(function () {
         gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
         updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
       });
@@ -86,12 +90,12 @@
     function handleSignOutClick(event) {
       gapi.auth2.getAuthInstance().signOut();
     }
+  </script>
+  <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
+    onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
-    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
-  </body>
+  <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+  <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+</body>
+
 </html>
