@@ -25,7 +25,7 @@
     var minutes = today_time.getMinutes();
     var seconds = today_time.getSeconds();
 
-    today_time = hours + ' : ' + minutes + ' : ' + seconds
+    today_time = (hours%12) + ' : ' + minutes
     today_date = mm + '/' + dd + '/' + yyyy;
 
     function makeApiCall() {
