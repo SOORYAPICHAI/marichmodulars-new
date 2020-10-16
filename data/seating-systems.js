@@ -1,3 +1,6 @@
+const construct_image_url = (url) =>{
+  return `/data/${url}`
+}
 // RANDOMIZE AN ARRAY
 function shuffle(array) {
   var currentIndex = array.length,
@@ -20,10 +23,10 @@ function shuffle(array) {
 }
 const executive_chairs = () => {
   return [
-    "https://www.featherlitefurniture.com/drupal/sites/default/files/products/Click_Main.jpg",
-    "https://5.imimg.com/data5/MB/FP/MY-25466673/director-office-chair-500x500.jpg",
-    "https://www.featherlitefurniture.com/drupal/sites/default/files/products/Click_HB-&-MB.jpg",
-    "https://www.shoppychairs.com/wp-content/uploads/2020/04/optima-high-back-executive-chairs.jpg",
+    construct_image_url(`./marichmodulars-product-images/Executive-Chairs/Executive-Chairs01.png`),
+    construct_image_url(`./marichmodulars-product-images/Executive-Chairs/Executive-Chairs02.png`),
+    construct_image_url(`./marichmodulars-product-images/Executive-Chairs/Executive-Chairs03.png`),
+    construct_image_url(`./marichmodulars-product-images/Executive-Chairs/Executive-Chairs04.png`),
   ].map((val, index) => {
     return {
       key: "executive-chairs",
@@ -35,10 +38,10 @@ const executive_chairs = () => {
 
 const workstation_chairs = () => {
   return [
-    "https://www.prestigeofficesystems.com/wp-content/uploads/2016/10/Office-Furniture-Delhi-Gurgaon-India.jpg",
-    "https://www.cassamia.my/images/stories/virtuemart/product/Vinca%20Table.jpg",
-    "https://4.imimg.com/data4/HL/YH/ANDROID-23359248/product-500x500.jpeg",
-    "https://i.pinimg.com/originals/0f/41/02/0f4102953543108b8a3f3a7dcfbc4461.jpg",
+    construct_image_url(`./marichmodulars-product-images/Workstation-Chairs/Workstation-Chairs01.png`),
+    construct_image_url(`./marichmodulars-product-images/Workstation-Chairs/Workstation-Chairs02.png`),
+    construct_image_url(`./marichmodulars-product-images/Workstation-Chairs/Workstation-Chairs03.png`),
+    construct_image_url(`./marichmodulars-product-images/Workstation-Chairs/Workstation-Chairs04.png`),
   ].map((val, index) => {
     return {
       key: "workstation-chairs",
@@ -50,10 +53,10 @@ const workstation_chairs = () => {
 
 const visitor_chairs = () => {
   return [
-    "https://images.steelcase.com/image/upload/v1432242197/www.steelcase.com/Bindu_Features.jpg",
-    "https://cpimg.tistatic.com/05821822/b/4/Visitors-Modular-Office-Chair.jpg",
-    "https://5.imimg.com/data5/KM/RN/MY-2548914/stylish-modular-chair-500x500.jpg",
-    "https://www.ryanofficesystems.in/assets/images/home/Visitor-Chair.jpg",
+    construct_image_url(`./marichmodulars-product-images/Visitor-Chairs/Visitor-Chairs01.png`),
+    construct_image_url(`./marichmodulars-product-images/Visitor-Chairs/Visitor-Chairs02.png`),
+    construct_image_url(`./marichmodulars-product-images/Visitor-Chairs/Visitor-Chairs03.png`),
+    construct_image_url(`./marichmodulars-product-images/Visitor-Chairs/Visitor-Chairs04.png`),
   ].map((val, index) => {
     return {
       key: "visitor-chairs",
@@ -65,10 +68,10 @@ const visitor_chairs = () => {
 
 const conference_chairs = () => {
   return [
-    "https://5.imimg.com/data5/FB/JL/EX/SELLER-83084701/godrej-corporate-15-500x500.jpg",
-    "https://sc02.alicdn.com/kf/HTB10UF7bQOWBuNjSsppq6xPgpXa5/201769699/HTB10UF7bQOWBuNjSsppq6xPgpXa5.jpg_.webp",
-    "https://www.esquirespacenstyle.com/products/gallery/00000032.jpg",
-    "https://images.custommade.com/7cGfxyUrtnHsMX6Es7HAg7MSVlI=/custommade-photosets/8e2993b3a96039a_img_3915.JPG",
+    construct_image_url(`./marichmodulars-product-images/Conference-Chairs/Conference-Chairs01.png`),
+    construct_image_url(`./marichmodulars-product-images/Conference-Chairs/Conference-Chairs02.png`),
+    construct_image_url(`./marichmodulars-product-images/Conference-Chairs/Conference-Chairs03.png`),
+    construct_image_url(`./marichmodulars-product-images/Conference-Chairs/Conference-Chairs04.png`),
   ].map((val, index) => {
     return {
       key: "conference-chairs",
@@ -80,10 +83,10 @@ const conference_chairs = () => {
 
 const trainee_chairs = () => {
   return [
-    "https://5.imimg.com/data5/HX/IC/MY-43133357/trainee-and-institution-chairs-and-table-500x500.jpg",
-    "https://www.primeofficesystems.in/images/products/trainee-chairs/large/004.jpg",
-    "https://1.bp.blogspot.com/-YwhuiBL_4_U/Uvu8uiIJ7pI/AAAAAAAAHxE/HzrjZ-ACZ7w/s1600/Mayline+Sync+Training+Tables.png",
-    "https://5.imimg.com/data5/ID/QI/IP/SELLER-4711259/computer-lab-furniture-500x500.jpg",
+    construct_image_url(`./marichmodulars-product-images/Trainee-Chairs/Trainee-Chairs01.png`),
+    construct_image_url(`./marichmodulars-product-images/Trainee-Chairs/Trainee-Chairs02.png`),
+    construct_image_url(`./marichmodulars-product-images/Trainee-Chairs/Trainee-Chairs03.png`),
+    construct_image_url(`./marichmodulars-product-images/Trainee-Chairs/Trainee-Chairs04.png`),
   ].map((val, index) => {
     return {
       key: "trainee-chairs",
@@ -95,10 +98,9 @@ const trainee_chairs = () => {
 
 const auditorium_chairs = () => {
   return [
-    "https://geeken.in/wp-content/uploads/2018/09/audi-5.jpg",
-    "https://5.imimg.com/data5/KD/WP/TT/SELLER-109575/auditorium-chair-500x500.jpg",
-    "https://geeken.in/wp-content/uploads/2018/09/audi-5.jpg",
-    "https://5.imimg.com/data5/OU/SB/MY-19342895/modular-auditorium-chair-500x500.jpg",
+    construct_image_url(`./marichmodulars-product-images/Auditorium-Chairs/Auditorium-Chairs01.png`),
+    construct_image_url(`./marichmodulars-product-images/Auditorium-Chairs/Auditorium-Chairs02.png`),
+    construct_image_url(`./marichmodulars-product-images/Auditorium-Chairs/Auditorium-Chairs03.png`),
   ].map((val, index) => {
     return {
       key: "auditorium-chairs",
