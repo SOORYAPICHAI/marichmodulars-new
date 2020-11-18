@@ -293,9 +293,11 @@ overflow:visible;
 		display:inline-block;
 	}
 	.logo-small{
-	margin-bottom:20px;
+	/* margin-bottom:20px; */
 	}
-		
+.logo-small-footer{
+	margin-bottom:10px;
+}		
 	header.de_header_2{
 		height:125px;	
 	}
